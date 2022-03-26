@@ -47,6 +47,9 @@ public class Kot {
         this.imieOpiekuna = imieOpiekuna;
     }
 
+    public Kot() {
+    }
+
     public String przedstawSie() {
         return "Imie kota: " + this.imie + " | waga: " + this.waga + " | mie opiekuna: " + this.imieOpiekuna;
     }
