@@ -13,6 +13,7 @@ public class Interfejs {
 
     public static void main(String[] args) {
         Kot kot = new Kot();
+        KotDAO kotDAO = new KotDAO();
 
         String imieKota;
         String opiekun;
@@ -23,10 +24,10 @@ public class Interfejs {
         System.out.println("Podaj imie opiekuna: ");
         kot.setImieOpiekuna(getUserInput());
 
-
         Pattern wzorzecDaty = Pattern.compile("[0-9]{4}.[0-1]?[0-9].[0-3]?[0-9]");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         String dataUrodzeniaWczytana;
+
         do {
             System.out.print("Podaj datę urodzenia kota w formacie RRRR.MM.DD: ");
             dataUrodzeniaWczytana = getUserInput();
@@ -41,6 +42,7 @@ public class Interfejs {
 
         Pattern wzorzecWagi = Pattern.compile("[0-9]+(\\.[0-9]+)?");
         String wagaWczytana;
+
         do {
             System.out.print("Podaj wagę kota: ");
             wagaWczytana = getUserInput();
@@ -50,11 +52,9 @@ public class Interfejs {
             }
         } while (kot.getWaga() == null);
 
-
-
+        kotDAO.dodajKota(kot);
 
     }
-
 
     public static String getUserInput() {
         return sc.nextLine();
